@@ -14,7 +14,7 @@ resources:
       type: github
       name: schmidtjohannes/azure-devops-build-templates
       ref: refs/tags/v1.0 # optional ref to pin to
-
+      endpoint: schmidtjohannes
 jobs:
 - template: common.yml@templates  # Template reference
   parameters:
