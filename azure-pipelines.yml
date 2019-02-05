@@ -6,17 +6,31 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'Ubuntu-16.04'
+# Repo: Contoso/WindowsProduct
+# File: azure-pipelines.yml
+resources:
+  repositories:
+    - repository: templates
+      type: github
+      name: schmidtjohannes/azure-devops-build-templates
+      ref: refs/tags/v1.0 # optional ref to pin to
 
-steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '8.x'
-  displayName: 'Install Node.js'
+jobs:
+- template: common.yml@templates  # Template reference
+  parameters:
+    vmImage: 'vs2017-win2016'
 
-- script: |
-    npm install
-    npm run build
-    npm test
-  displayName: 'npm install, build, and test'
+#pool:
+#  vmImage: 'Ubuntu-16.04'
+#
+#steps:
+#- task: NodeTool@0
+#  inputs:
+#    versionSpec: '8.x'
+#  displayName: 'Install Node.js'
+#
+#- script: |
+#    npm install
+#    npm run build
+#    npm test
+#  displayName: 'npm install, build, and test'
