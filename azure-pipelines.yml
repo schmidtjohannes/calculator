@@ -16,21 +16,9 @@ resources:
       ref: refs/tags/v1.0 # optional ref to pin to
       endpoint: schmidtjohannes
 jobs:
-- template: common.yml@templates  # Template reference
-  parameters:
-    vmImage: 'vs2017-win2016'
-
-#pool:
-#  vmImage: 'Ubuntu-16.04'
-#
-#steps:
-#- task: NodeTool@0
-#  inputs:
-#    versionSpec: '8.x'
-#  displayName: 'Install Node.js'
-#
-#- script: |
-#    npm install
-#    npm run build
-#    npm test
-#  displayName: 'npm install, build, and test'
+#- template: common.yml@templates  # Template reference
+#  parameters:
+#    vmImage: 'vs2017-win2016'
+- job: Install Package
+  steps:
+  - script: echo My first job
