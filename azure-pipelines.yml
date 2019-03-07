@@ -19,6 +19,6 @@ jobs:
 #- template: common.yml@templates  # Template reference
 #  parameters:
 #    vmImage: 'vs2017-win2016'
-- job: install-package
+- job: install_package
   steps:
   - script: echo My first job
