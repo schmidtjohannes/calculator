@@ -15,10 +15,14 @@ resources:
       name: schmidtjohannes/azure-devops-build-templates
       ref: refs/tags/v1.0 # optional ref to pin to
       endpoint: schmidtjohannes
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
 jobs:
 #- template: common.yml@templates  # Template reference
 #  parameters:
 #    vmImage: 'vs2017-win2016'
 - job: install_package
   steps:
-  - script: echo My first job
+  - script: apt-get update && apt-get install -y software-properties-common && apt-add-repository --yes --update ppa:ansible/ansible && apt-get install -y ansible
