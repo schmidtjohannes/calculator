@@ -25,6 +25,7 @@ pool:
 #    vmImage: 'vs2017-win2016'
 steps:
  - script: |
+     sudo echo "127.0.0.1 test.domain.com" >> /etc/hosts
      sudo apt-get update
      sudo apt-get install -y software-properties-common
      sudo apt-add-repository --yes --update ppa:ansible/ansible
