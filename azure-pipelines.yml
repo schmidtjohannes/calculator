@@ -24,11 +24,14 @@ pool:
 #  parameters:
 #    vmImage: 'vs2017-win2016'
 steps:
+
  - script: |
      sudo echo "127.0.0.1 test.domain.com" >> /etc/hosts
      sudo cat /etc/hosts
-     sudo apt-get update
-     sudo apt-get install -y software-properties-common
-     sudo apt-add-repository --yes --update ppa:ansible/ansible
-     sudo apt-get install -y ansible
- - script: ansible --version
+     ping -c 1 test.domain.com
+# - script: |
+#     sudo apt-get update
+#     sudo apt-get install -y software-properties-common
+#     sudo apt-add-repository --yes --update ppa:ansible/ansible
+#     sudo apt-get install -y ansible
+# - script: ansible --version
